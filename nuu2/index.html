@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh_TW">
+
+	<head>
+		<meta charset="utf-8">
+		<title>國立聯合大學文化創意與數位行銷學系-第一週</title>
+		<meta name="description" content="10601-20170922">
+		<meta name="author" content="Mxp.TW">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1><del>潮潮潮</del>電子商務</h1>
+					<h4>國立聯合大學<br/> 文化創意與數位行銷學系</h4>
+						<small>講師：<a href="https://fb.me/mxp.tw">江弘竣</a> - 2017/09/22</small>
+					
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## 關於我
+
+						* 敲敲設計有限公司 - 共同創辦人兼技術總監
+						* WordPress 社群小聚主辦
+						* 部落客
+						* 攝影玩家
+						* Hacker
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## 關於電子商務這門課
+
+						已實務操作為主。架設電子商務系統，並設立實際銷售產品為目標。
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						1. 電子商務資訊理論基礎（4hr）
+						2. 網站架設-系統環境選擇與建置（6hr）
+						3. 網站架設-WordPress行銷工具安裝與使用（6hr）
+						4. 期中專案進度報告
+						5. 網站架設-建置線上銷售服務平台（4hr）
+						6. 社群媒體選擇與建置（4hr）
+						7. 廣告操作與數據分析（4hr）
+						8. 品牌形象規劃之商品攝影與文案設計（2hr）
+						9. 淺談系統資訊安全（2hr）
+						10. 期末專案進度報告
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### 配分項目及其分百分比
+
+						1.	出席率 20%
+						2.	團隊合作 20%
+						3.	專案報告 60%
+
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### 聯絡方式
+
+						Facebook: [江弘竣](https://www.facebook.com/mxp.tw)
+
+						網站：[一介資男](https://www.mxp.tw/contact/)
+
+					</script>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: 'c/t',
+				transition: 'zoom', // none/fade/slide/convex/concave/zoom
+				multiplex: {
+			        // Example values. To generate your own, see the socket.io server instructions.
+			        secret: '14864019985939991710', // null so the clients do not have control of the master presentation
+			        id: 'db65963a1f740ed7', // id, obtained from socket.io server
+			        url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
+			    },
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
+        			//{ src: '../reveal.js/plugin/multiplex/master.js', async: true },
+        			{ src: '../reveal.js/plugin/multiplex/client.js', async: true },
+        	]});
+		</script>
+
+	</body>
+</html>
