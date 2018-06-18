@@ -8,3 +8,4 @@
 - 2017/08/26-2017/08/27 [Facebook 網路行銷的起手式－服務型態](https://nczz.github.io/presentation/nit.taipei2/) / [列印輸出PDF版](https://nczz.github.io/presentation/nit.taipei2/?print-pdf)
 - 2017/10/02 [國立聯合大學資訊工程學系 - 從研究所感覺沒什麼到還好有讀研究所的心路](https://nczz.github.io/presentation/nuu3/) / [列印輸出PDF版](https://nczz.github.io/presentation/nuu3/?print-pdf)
 - 2018/04/22 [社群媒體經營操作 Facebook (上)篇、(下)篇](https://nczz.github.io/presentation/nit.taipei3/) / [列印輸出PDF版](https://nczz.github.io/presentation/nit.taipei3/?print-pdf)
+- 2018/06/23 [社群媒體經營操作 Facebook (上)篇、(下)篇](https://nczz.github.io/presentation/nit.taipei4/) / [列印輸出PDF版](https://nczz.github.io/presentation/nit.taipei3/?print-pdf)
