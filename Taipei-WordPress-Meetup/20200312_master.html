@@ -1,0 +1,243 @@
+<!DOCTYPE doctype html>
+<html lang="zh_TW">
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            WordPress 2020/03/12 小聚 @ 台北信義 | WordPress 網站的速度還是素肚？ - 快取加速與圖片檔案的經營管理
+        </title>
+        <meta content="分享給 2020/03/12 參加台北信義小聚的夥伴" name="description"/>
+        <meta content="Mxp.TW" name="author"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+        <link href="../reveal.js/css/reveal.css" rel="stylesheet"/>
+        <link href="../reveal.js/css/theme/black.css" id="theme" rel="stylesheet"/>
+        <!-- Theme used for syntax highlighting of code -->
+        <link href="../reveal.js/lib/css/zenburn.css" rel="stylesheet"/>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+        <!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h3>
+                        WordPress 網站的速度還是素肚？
+                        <br/>
+                        - 快取加速與圖片檔案的經營管理
+                    </h3>
+                    <small>
+                        Created by
+                        <a href="https://www.mxp.tw/">
+                            Chun
+                        </a>
+                        /
+                        <a href="https://fb.me/mxp.tw">
+                            @江弘竣
+                        </a>
+                        - 2019/03/12
+                    </small>
+                </section>
+                <section>
+                    <p style="font-size: 60pt; font-weight: bold;">
+                        記得，是「WordPress」。
+                    </p>
+                </section>
+                <section>
+                    <h3>
+                        關於我
+                    </h3>
+                    <ul>
+                        <li>
+                            - 開源精神的追隨者、社群愛好者、部落客
+                        </li>
+                        <li>
+                            -
+                            <a href="https://profiles.wordpress.org/mxp/#content-plugins">
+                                WordPress 外掛開發者
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        #### 速度的原罪 - 時間 ![](light_speed_ptt.png)
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## 其他盲點 - 我方相對觀念
+
+                        - 你現在的網路夠快嗎？
+                        - 手機或行動裝置的話，訊號夠穩嗎？
+                        - 你朋友測也很慢的慢，有條件一樣嗎？
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## 其他盲點 - 他方相對觀念
+
+                        - 主機相關資源真的是你獨享嗎？
+                        - 網站本來就快嗎？
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## 整理一下 
+
+                        1. `網站速度` <=> ⤵
+                        2. `主機速度` <=> ⤵
+                        3. `主機給你的網路` <=> ⤵
+                        4. `DNS查詢的網路` <=> ⤵
+                        5. `你連線的網路` <=> ⤵
+                        6. `你閱讀媒體的裝置` <=> ⤵
+                        7. `你個人對速度的感觀`
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ### 快取就是
+
+                        <font color=yellow>「記住它，省點力，不做重複事，效率就好！」</font>
+
+                        1. <font color=DarkOrange>`網站速度`</font> <=> 靜態快取、減少請求、請求分流、改善演算法
+                        2. <font color=blue>`主機速度`</font> <=> <font color=yellow>$$$$</font>
+                        3. <font color=blue>`主機給你的網路`</font> <=> <font color=yellow>$$$$$</font>
+                        4. <font color=blue>`DNS查詢的網路`</font> <=> <font color=yellow>$$</font>
+                        5. `你連線的網路` <=> <font color=yellow>$$$</font>
+                        6. `你閱讀媒體的裝置` <=> <font color=yellow>$$$</font>
+                        7. `你個人對速度的感觀` <=> <font color=red>沒救</font>
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ### WordPress 網站
+
+                        「<font color=LightGoldenRodYellow>他家 WordPress 網站不慢，怎麼我的就慢？</font>」 - 這是一句（我聽起來）很幸福的話了！
+
+                        站在都是相對的狀況下，變數越少越好。
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ### WordPress 網站組成
+
+                        1. 伺服器架構（設定）
+                        2. 伺服器服務請求數
+                        3. 網站外掛功能組合（預設純 Blog 功能）
+                        4. 資料庫架構（設定）
+                        5. 資料庫服務請求數
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ### WordPress 網站快取點
+
+                        1. 伺服器架構 <=> OPcache, Memcached, FastCGI Cache..
+                        2. <font color=yellow>伺服器服務請求數</font> <=> CDN
+                        3. <font color=yellow>網站外掛功能組合</font> <=> [W3TC](https://tw.wordpress.org/plugins/w3-total-cache/), [Breeze](https://tw.wordpress.org/plugins/breeze/), [SG Optimizer](https://tw.wordpress.org/plugins/sg-cachepress/), [WP Rocket](https://wp-rocket.me/), Lazy Loading,,,
+                        4. 資料庫架構 <=> [Query Cache](http://ghoulich.xninja.org/2016/01/20/query-cache-in-mysql/), [ProxySQL](https://www.percona.com/blog/2018/02/07/proxysql-query-cache/)
+                        5. 資料庫服務請求數 <=> 讀寫分離，拆解資料流
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ### 快取後遺症
+
+                        1. 怎麼我網站改了沒變？
+                        2. 怎麼朋友看到的跟我不一樣？
+                        3. 剛剛還可以，現在怎不行了？
+                        4. 網站畫面怎突然跑版？
+                        5. 欸，網站掛了！
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ### 經營的負擔 - 時間
+
+                        時間一久，每天累積的小檔案也是很驚人！使用 WordPress 網站從小流量到大流量的演變？
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ### WordPress 媒體庫管理
+
+                        1. 上傳圖片檔案前一定要壓縮過
+                        2. 每張圖片盡量都不要超過 400KB
+                        3. 大檔案（影片、報告..）都放在別地方，網站不是拿來備份檔案用的地方
+                        4. 不透過內建縮圖機制來便宜行事，用多大自己裁多大
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ### 進階 WordPress 媒體庫管理
+
+                        1. 把圖片放置在其他「自己的」空間，網站內容使用外連圖片
+                        2. 搭配雲端空間外掛管理媒體： [Media Cloud](https://www.mxp.tw/6907/), [WP-Stateless – Google Cloud Storage](https://www.mxp.tw/6500/), [DigitalOcean Spaces Sync](https://www.mxp.tw/8831/)
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ### 學習的態度
+
+                        不求速成。覺得它慢，就想辦法來學，這也是你拉進距離，提升速度的關鍵！
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## Q & A
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## 聯絡方式 
+                        * 信箱： [im@mxp.tw](mailto:im@mxp.tw) 
+                        * 網站： [一介資男](https://www.mxp.tw/contact/)
+                    </script>
+                </section>
+            </div>
+        </div>
+        <script src="../reveal.js/lib/js/head.min.js">
+        </script>
+        <script src="../reveal.js/js/reveal.js">
+        </script>
+        <script>
+            // More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: 'c/t',
+				transition: 'zoom', // none/fade/slide/convex/concave/zoom
+				multiplex: {
+			        // Example values. To generate your own, see the socket.io server instructions.
+			        secret: '14864019985939991710', // null so the clients do not have control of the master presentation
+			        id: 'db65963a1f740ed7', // id, obtained from socket.io server
+			        url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
+			    },
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
+        			{ src: '../reveal.js/plugin/multiplex/master.js', async: true },
+        			// { src: '../reveal.js/plugin/multiplex/client.js', async: true },
+        	]});
+        </script>
+    </body>
+</html>
