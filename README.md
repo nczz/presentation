@@ -12,3 +12,4 @@
 - 2018/10/31 [國立聯合大學資訊工程學系 - 兩小時大學研究所到出社會創業的副本攻略](https://nczz.github.io/presentation/nuu4/) / [列印輸出PDF版](https://nczz.github.io/presentation/nuu4/?print-pdf)
 - 2019/03/20 [WordPress 2019/03/20 小聚 @ 桃園 - 認識你的 WordPress 架構](https://nczz.github.io/presentation/Taoyuan-WordPress-Meetup/20190320.html) / [列印輸出PDF版](https://nczz.github.io/presentation/Taoyuan-WordPress-Meetup/20190320.html?print-pdf)
 - 2020/03/12 [WordPress 2020/03/12 小聚 @ 台北信義 - WordPress 網站的速度還是素肚？ - 快取加速與圖片檔案的經營管理](https://nczz.github.io/presentation/Taipei-WordPress-Meetup/20200312.html) / [列印輸出PDF版](https://nczz.github.io/presentation/Taipei-WordPress-Meetup/20200312.html?print-pdf)
+- 2020/05/29 [WordPress 2020/05/29 小聚 @ 台北信義 - 抗疫期間，我學習 WordPress 的方法](https://nczz.github.io/presentation/Taipei-WordPress-Meetup/20200529.html) / [列印輸出PDF版](https://nczz.github.io/presentation/Taipei-WordPress-Meetup/20200529.html?print-pdf)
