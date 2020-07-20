@@ -1,0 +1,175 @@
+<!DOCTYPE doctype html>
+<html lang="zh_TW">
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            WordPress 2020/07/23 小聚 @ 台北信義 | WordPress 新手入門的五件早知道
+        </title>
+        <meta content="分享給 2020/07/23 參加台北信義小聚的夥伴" name="description"/>
+        <meta content="Mxp.TW" name="author"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+        <link href="../reveal.js/css/reveal.css" rel="stylesheet"/>
+        <link href="../reveal.js/css/theme/black.css" id="theme" rel="stylesheet"/>
+        <!-- Theme used for syntax highlighting of code -->
+        <link href="../reveal.js/lib/css/zenburn.css" rel="stylesheet"/>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+        <!--[if lt IE 9]>
+        <script src="../reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h3 style="text-transform: none;">
+                        WordPress 新手入門的五件早知道
+                    </h3>
+                    <small>
+                        Created by
+                        <a href="https://www.mxp.tw/">
+                            Chun
+                        </a>
+                        /
+                        <a href="https://fb.me/mxp.tw">
+                            @江弘竣
+                        </a>
+                        - 2020/07/23
+                    </small>
+                </section>
+                <section>
+                    <p style="font-size: 60pt; font-weight: bold;">
+                        記得，是「WordPress」。
+                    </p>
+                </section>
+                <section>
+                    <h3>
+                        關於我
+                    </h3>
+                    <ul>
+                        <li>
+                            - 後端維運工程師
+                        </li>
+                        <li>
+                            - 部落客
+                        </li>
+                        <li>
+                            - 每月舉辦 WordPress 小聚累計超過 48 場的主辦
+                        </li>
+                        <li>
+                            - WordPress 小聚分享者
+                        </li>
+                        <li>
+                            -
+                            <a href="https://profiles.wordpress.org/mxp/#content-plugins">
+                                WordPress 外掛開發者
+                            </a>
+                        </li>
+                        <li>
+                            - WordCamp Taipei 2018 總召
+                        </li>
+                        <li>
+                            - WordCamp Taipei 2019 贊助組組長
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 style="text-transform: none;">
+                        哎呀早知道！
+                    </h3>
+                    <ol>
+                        <li>
+                            安裝選擇
+                            <a href="https://zh-tw.wordpress.com/">
+                                Word
+                            </a>
+                            <a href="https://tw.wordpress.org">
+                                Press
+                            </a>
+                            的雷
+                        </li>
+                        <li>
+                            主機與網域傻傻分不清
+                        </li>
+                        <li>
+                            <a href="https://nczz.github.io/presentation/chewpeople/#/6">
+                                剛開站
+                            </a>
+                            要注意的事
+                        </li>
+                        <li>
+                            主題與外掛的愛恨情仇
+                        </li>
+                        <li>
+                            學習資源和環境的選擇
+                        </li>
+                    </ol>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## 主題與外掛的愛恨情仇
+
+                        1. WordPress 是一堆外掛牽引機制組合而成
+                        2. 主題是外掛，外掛還是外掛
+                        3. 主題不強，外掛加強
+                        4. 外掛不強，還可以外掛加強
+                        5. 想好網站架構，先找一個 87% 強的主題
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## Q & A
+                    </script>
+                </section>
+                <section data-markdown="">
+                    <script type="text/template">
+                        ## 聯絡方式 
+                        * 信箱： [im@mxp.tw](mailto:im@mxp.tw) 
+                        * 網站： [一介資男](https://www.mxp.tw/contact/)
+                    </script>
+                </section>
+            </div>
+        </div>
+        <script src="../reveal.js/lib/js/head.min.js">
+        </script>
+        <script src="../reveal.js/js/reveal.js">
+        </script>
+        <script>
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: 'c/t',
+                transition: 'zoom', // none/fade/slide/convex/concave/zoom
+                multiplex: {
+                    // Example values. To generate your own, see the socket.io server instructions.
+                    secret: '14864019985939991710', // null so the clients do not have control of the master presentation
+                    id: 'db65963a1f740ed7', // id, obtained from socket.io server
+                    url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
+                },
+
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+                    { src: '../reveal.js/plugin/notes/notes.js', async: true },
+                    { src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
+                    //{ src: '../reveal.js/plugin/multiplex/master.js', async: true },
+                    { src: '../reveal.js/plugin/multiplex/client.js', async: true },
+            ]});
+        </script>
+    </body>
+</html>
