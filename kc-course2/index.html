@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="zh_TW">
+
+	<head>
+		<meta charset="utf-8">
+		<title>AI Agent 第二大腦 — 工作流 & 知識庫</title>
+		<meta name="description" content="AI Agent 第二大腦 — 工作流 & 知識庫">
+		<meta name="author" content="江弘竣 Chun">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../reveal.js/dist/plugin/highlight/zenburn.css">
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+			.reveal, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal p, .reveal li, .reveal blockquote {
+				font-family: 'Noto Sans TC', sans-serif;
+			}
+			.reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+			.reveal section img { border: none; box-shadow: none; background: none; }
+			.reveal .highlight { color: #22c55e; }
+			.reveal .dim { color: #888; font-size: 0.7em; }
+			.reveal .left { text-align: left; }
+			.reveal ul { text-align: left; }
+			.reveal ol { text-align: left; }
+			.reveal blockquote {
+				width: 90%;
+				font-style: normal;
+				background: rgba(255,255,255,0.05);
+				padding: 20px;
+				border-left: 4px solid #22c55e;
+			}
+			.reveal table {
+				border-collapse: collapse;
+				margin: 0 auto;
+				font-size: 0.7em;
+			}
+			.reveal table th,
+			.reveal table td {
+				border: 1px solid #444;
+				padding: 8px 16px;
+				text-align: left;
+			}
+			.reveal table th {
+				background: rgba(34,197,94,0.2);
+				color: #22c55e;
+			}
+			.reveal pre code {
+				background: rgba(34,197,94,0.1);
+			}
+			.reveal code {
+				background: rgba(34,197,94,0.1);
+				padding: 2px 6px;
+				border-radius: 3px;
+			}
+			.reveal pre code {
+				padding: 16px;
+			}
+			.reveal .big-number { font-size: 3em; color: #22c55e; font-weight: bold; }
+			.reveal .two-col { display: flex; gap: 40px; }
+			.reveal .two-col > div { flex: 1; text-align: left; }
+			.reveal .section-title { color: #22c55e; }
+			.reveal .scenario-tag {
+				display: inline-block;
+				background: rgba(34,197,94,0.2);
+				color: #22c55e;
+				padding: 4px 12px;
+				border-radius: 4px;
+				font-size: 0.8em;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- ============================== -->
+				<!-- 封面 -->
+				<!-- ============================== -->
+				<section>
+					<p class="dim">AI AGENT WORKSHOP</p>
+					<h1>第二大腦</h1>
+					<h3>工作流 & 知識庫</h3>
+					<p><br></p>
+					<p>
+						<small>江弘竣 Chun ｜ <a href="https://mxp.tw">一介資男</a> ｜ mxp.tw</small>
+					</p>
+					<p><small class="dim">2026.07.25</small></p>
+				</section>
+
+				<!-- ============================== -->
+				<!-- Part 0：前置準備 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Part 0</h2>
+						<h3 class="section-title">前置準備</h3>
+					</section>
+
+					<section>
+						<h3>環境需求</h3>
+						<table>
+							<thead>
+								<tr>
+									<th>平台</th>
+									<th>適合度</th>
+									<th>備註</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>macOS</td>
+									<td><span class="highlight">優</span></td>
+									<td>原生 Unix 環境</td>
+								</tr>
+								<tr>
+									<td>Windows</td>
+									<td>普</td>
+									<td>需額外設定 WSL</td>
+								</tr>
+								<tr>
+									<td>Linux VPS</td>
+									<td><span class="highlight">佳</span></td>
+									<td>雲端隨開隨用</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><br></p>
+						<p class="left" style="font-size:0.8em;">需要：</p>
+						<ul style="font-size:0.7em;">
+							<li>OpenAI 訂閱帳號（GPT-5.5+ / Codex）</li>
+							<li>Z.AI 訂閱帳號（GLM-5+）</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- Part 1：背景脈絡 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Part 1</h2>
+						<h3 class="section-title">背景脈絡</h3>
+					</section>
+
+					<section>
+						<h3>2026 年 AI 供應商全景</h3>
+						<table>
+							<thead>
+								<tr>
+									<th>供應商</th>
+									<th>代表模型</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>OpenAI</td><td>GPT-5.5 / o3 / Codex</td></tr>
+								<tr><td>Anthropic</td><td>Claude 4 / Sonnet</td></tr>
+								<tr><td>Google</td><td>Gemini 2.5 Pro</td></tr>
+								<tr><td>xAI</td><td>Grok 4</td></tr>
+								<tr><td>智譜 AI</td><td>GLM-5</td></tr>
+								<tr><td>Meta</td><td>Llama 4</td></tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<h3>AI Agent 操作介面（腦殼）</h3>
+						<div class="two-col">
+							<div>
+								<h4 class="highlight">GUI 圖形介面</h4>
+								<p>ChatGPT Work (Codex)</p>
+								<p class="dim">點擊操作、視覺化回饋</p>
+							</div>
+							<div>
+								<h4 class="highlight">TUI 終端機介面</h4>
+								<p>Oh My Pi (omp.sh)</p>
+								<p class="dim">鍵盤操作、極致效率</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>LLM Models</h3>
+						<ul>
+							<li><span class="highlight">GPT-5.5+</span> — OpenAI 最新推理模型<br><span class="dim">Codex / ChatGPT Work 預設</span></li>
+							<li><span class="highlight">GLM-5+</span> — 智譜 AI 中文最強模型<br><span class="dim">Z.AI / Oh My Pi 整合</span></li>
+						</ul>
+						<p><br></p>
+						<p class="dim">參考：Andrej Karpathy's LLM Wiki</p>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- Part 2：Obsidian 版本 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Part 2</h2>
+						<h3 class="section-title">Obsidian 版本</h3>
+						<p>Skills 驅動的第二大腦</p>
+					</section>
+
+					<section>
+						<h3>Obsidian + AI Agent</h3>
+						<p class="left">一個 Prompt 完成安裝、啟用 Skills、初始化 Vault</p>
+						<blockquote>
+							「幫我研究 obsidian-second-brain 開源專案並安裝啟用 Skills 與初始化」
+						</blockquote>
+						<p><br></p>
+						<p class="left" style="font-size:0.8em;">建議啟用外掛：</p>
+						<ul style="font-size:0.7em;">
+							<li>Bases</li>
+							<li>Dataview</li>
+							<li>Templater</li>
+							<li>Kanban</li>
+							<li>Calendar</li>
+						</ul>
+					</section>
+
+					<!-- 情境 1 -->
+					<section>
+						<p class="scenario-tag">情境 1</p>
+						<h3>開完會把重點存進 Vault</h3>
+						<p style="font-size:0.8em;"><code>$obsidian-save</code></p>
+						<blockquote style="font-size:0.75em;">
+							「跟張經理開會，他決定用 PostgreSQL 取代 MySQL，預算上限 50 萬，下周三前要出 POC。」
+						</blockquote>
+						<p><br></p>
+						<p class="left" style="font-size:0.75em;">Agent 自動：</p>
+						<ul style="font-size:0.7em;">
+							<li>建立/更新 People note</li>
+							<li>記到 Project Key Decisions</li>
+							<li>加 Kanban Task</li>
+							<li>更新 Daily Note</li>
+						</ul>
+					</section>
+
+					<!-- 情境 2 -->
+					<section>
+						<p class="scenario-tag">情境 2</p>
+						<h3>研究一個技術主題</h3>
+						<p style="font-size:0.8em;"><code>$research</code></p>
+						<blockquote style="font-size:0.75em;">
+							$research "Cloudflare Durable Objects vs Redis for real-time state"
+						</blockquote>
+						<p><br></p>
+						<p class="left" style="font-size:0.75em;">Agent 自動：</p>
+						<ul style="font-size:0.7em;">
+							<li>從多來源蒐集資料</li>
+							<li>寫 AI-first 研究筆記</li>
+							<li>每個 claim 標注來源和時間戳</li>
+						</ul>
+					</section>
+
+					<!-- 情境 3 -->
+					<section>
+						<p class="scenario-tag">情境 3</p>
+						<h3>每天早上看今天該做什麼</h3>
+						<p style="font-size:0.8em;"><code>$obsidian-daily</code></p>
+						<p><br></p>
+						<ul style="font-size:0.75em;">
+							<li>建立/更新 Daily Note</li>
+							<li>拉進 Kanban 到期任務</li>
+							<li>加入昨天 carry-over 項目</li>
+						</ul>
+					</section>
+
+					<!-- 情境 4 -->
+					<section>
+						<p class="scenario-tag">情境 4</p>
+						<h3>挑戰自己的想法</h3>
+						<p style="font-size:0.8em;"><code>$obsidian-challenge</code></p>
+						<blockquote style="font-size:0.75em;">
+							「我想把 backend 從 Node.js 改寫成 Go」
+						</blockquote>
+						<p><br></p>
+						<p class="left" style="font-size:0.75em;">Agent 從 vault 歷史找出：</p>
+						<ul style="font-size:0.7em;">
+							<li>類似決策</li>
+							<li>失敗經驗</li>
+							<li>矛盾紀錄</li>
+						</ul>
+						<p class="dim" style="font-size:0.7em;">→ 用你自己的筆記反問你</p>
+					</section>
+
+					<!-- 情境 5 -->
+					<section>
+						<p class="scenario-tag">情境 5</p>
+						<h3>吸收一個 YouTube 影片</h3>
+						<p style="font-size:0.8em;"><code>$youtube</code></p>
+						<p><br></p>
+						<p class="left" style="font-size:0.75em;">流程：</p>
+						<ol style="font-size:0.7em;">
+							<li>抓 transcript</li>
+							<li>Gemini / Grok 摘要</li>
+							<li>存成 AI-first 筆記</li>
+							<li>自動 cross-link</li>
+						</ol>
+					</section>
+
+					<!-- 情境 6 -->
+					<section>
+						<p class="scenario-tag">情境 6</p>
+						<h3>看最近一周做了什麼</h3>
+						<p style="font-size:0.8em;"><code>$obsidian-recap week</code></p>
+						<p><br></p>
+						<p class="left" style="font-size:0.75em;">讀取：</p>
+						<ul style="font-size:0.7em;">
+							<li>7 天 Daily Notes</li>
+							<li>Dev Logs</li>
+							<li>完成的 Kanban 項目</li>
+						</ul>
+						<p class="dim" style="font-size:0.7em;">→ 結構化週回顧摘要</p>
+					</section>
+
+					<!-- 情境 7 -->
+					<section>
+						<p class="scenario-tag">情境 7</p>
+						<h3>Vault 健康檢查</h3>
+						<p style="font-size:0.8em;"><code>$obsidian-health</code></p>
+						<p><br></p>
+						<p class="left" style="font-size:0.75em;">掃描找出：</p>
+						<ul style="font-size:0.7em;">
+							<li>壞連結</li>
+							<li>重複筆記</li>
+							<li>過期 Claims</li>
+							<li>孤立筆記</li>
+							<li>前後矛盾</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- Part 3：延伸工具 & Skill 案例 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Part 3</h2>
+						<h3 class="section-title">延伸工具 & Skill 案例</h3>
+					</section>
+
+					<section>
+						<h3>延伸工具</h3>
+						<div class="two-col">
+							<div>
+								<h4 class="highlight">LLM Wiki 桌面版</h4>
+								<p style="font-size:0.75em;">nashsu/llm_wiki</p>
+								<p class="dim">本地直接應用</p>
+							</div>
+							<div>
+								<h4 class="highlight">AnythingLLM</h4>
+								<p style="font-size:0.75em;">anythingllm.com</p>
+								<p class="dim">全端 RAG 知識庫方案<br>Docker / 桌面 / 雲端</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>如何建立一個 Skill？</h3>
+						<p class="dim">高鐵票查詢案例</p>
+						<p><br></p>
+						<p class="left" style="font-size:0.8em;">Skill = 一份 Markdown 說明書</p>
+						<p><br></p>
+						<ul style="font-size:0.75em;">
+							<li><code>name</code> — 技能名稱</li>
+							<li><code>description</code> — 觸發條件描述</li>
+							<li>觸發條件 — 什麼情境啟用</li>
+							<li>API 端點 — 實際操作方式</li>
+						</ul>
+						<p><br></p>
+						<p class="dim" style="font-size:0.65em;">參考：gist.github.com/nczz/a17ef9f</p>
+					</section>
+
+					<section>
+						<h3>Skill 案例 — 設計師 Skills</h3>
+						<p style="font-size:0.8em;">花樹設計（alchaincyf/huashu-design）</p>
+						<p><br></p>
+						<ul style="font-size:0.75em;">
+							<li>品牌視覺規範</li>
+							<li>排版原則</li>
+							<li>色彩系統</li>
+							<li>字型搭配</li>
+						</ul>
+						<p><br></p>
+						<blockquote style="font-size:0.75em;">
+							效果：Agent 遵守品牌一致性，產出可直接使用
+						</blockquote>
+					</section>
+
+					<section>
+						<h3>Skill 案例 — 去 AI 味</h3>
+						<table>
+							<thead>
+								<tr>
+									<th>語言</th>
+									<th>專案</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>英文</td><td>blader/humanizer</td></tr>
+								<tr><td>中文簡體</td><td>op7418/Humanizer-zh</td></tr>
+								<tr><td>台灣繁體</td><td>Raymondhou0917/speak-human-tw</td></tr>
+							</tbody>
+						</table>
+						<p><br></p>
+						<blockquote style="font-size:0.75em;">
+							「總而言之」→「所以說」<br>
+							「值得注意的是」→ 直接講重點
+						</blockquote>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- Part 4：Coding Agent 版本 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Part 4</h2>
+						<h3 class="section-title">Coding Agent 版本</h3>
+						<p>Knowledge 外掛驅動</p>
+					</section>
+
+					<section>
+						<h3>跨平台 Agent 工具</h3>
+						<table>
+							<thead>
+								<tr>
+									<th>工具</th>
+									<th>介面</th>
+									<th>知識庫系統</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><span class="highlight">Kiro CLI</span></td>
+									<td>TUI</td>
+									<td>Knowledge 外掛</td>
+								</tr>
+								<tr>
+									<td><span class="highlight">Pi / Oh My Pi</span></td>
+									<td>TUI</td>
+									<td>pi-knowledge 擴充</td>
+								</tr>
+								<tr>
+									<td><span class="highlight">ChatGPT Codex</span></td>
+									<td>GUI</td>
+									<td>Workspace 知識庫</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<h3>環境安裝 Node.js</h3>
+						<table>
+							<thead>
+								<tr>
+									<th>平台</th>
+									<th>指令</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>macOS</td><td><code>brew install node</code></td></tr>
+								<tr><td>Windows</td><td><code>winget install OpenJS.NodeJS.LTS</code></td></tr>
+								<tr><td>Linux</td><td><code>fnm</code></td></tr>
+							</tbody>
+						</table>
+						<p><br></p>
+						<blockquote style="font-size:0.75em;">
+							AI Agent 安裝：「幫我安裝 Node.js 並驗證」
+						</blockquote>
+					</section>
+
+					<section>
+						<h3>pi-knowledge</h3>
+						<p class="dim">OMP 原生擴充 — 本地 RAG 知識庫</p>
+						<p><br></p>
+						<p class="left" style="font-size:0.8em;">安裝：</p>
+						<pre><code>omp install npm:pi-knowledge</code></pre>
+						<p><br></p>
+						<ul style="font-size:0.75em;">
+							<li>混合檢索（語意 + BM25）</li>
+							<li>本地 embedding — 資料不外傳</li>
+							<li>程式碼感知切塊</li>
+							<li>增量索引 + 檔案監控</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>OMP 跨平台演示</h3>
+						<div class="two-col">
+							<div>
+								<h4 class="highlight">macOS Terminal</h4>
+								<p class="dim" style="font-size:0.7em;">原生支援，直接安裝使用</p>
+							</div>
+							<div>
+								<h4 class="highlight">Windows PowerShell</h4>
+								<p class="dim" style="font-size:0.7em;">winget 安裝，體驗一致</p>
+							</div>
+						</div>
+						<p><br></p>
+						<blockquote style="font-size:0.75em;">
+							知識庫存放 <code>~/.omp/knowledge/</code><br>
+							跨 session 持久化
+						</blockquote>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- Part 5：進階題 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Part 5</h2>
+						<h3 class="section-title">進階題</h3>
+					</section>
+
+					<section>
+						<h3>有了個人大腦後⋯⋯<br>團隊大腦在哪？</h3>
+						<p><br></p>
+						<div class="two-col">
+							<div>
+								<h4 class="highlight">個人大腦</h4>
+								<ul style="font-size:0.7em;">
+									<li>你的知識</li>
+									<li>你的經驗</li>
+									<li>你的決策</li>
+								</ul>
+							</div>
+							<div>
+								<h4 class="highlight">團隊大腦</h4>
+								<ul style="font-size:0.7em;">
+									<li>共享知識</li>
+									<li>協作流程</li>
+									<li>集體記憶</li>
+								</ul>
+							</div>
+						</div>
+						<p><br></p>
+						<p class="dim" style="font-size:0.75em;">下一步：權限隔離、多人協作、知識同步</p>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 結尾 -->
+				<!-- ============================== -->
+				<section>
+					<h2>開始建造你的第二大腦</h2>
+					<p><br></p>
+					<blockquote>
+						你的筆記不是垃圾，是知識的原料。<br>AI 幫你煉成金。
+					</blockquote>
+					<p><br></p>
+					<p>
+						<small>江弘竣 Chun ｜ <a href="https://mxp.tw">mxp.tw</a></small>
+					</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../reveal.js/dist/reveal.js"></script>
+		<script src="../reveal.js/dist/plugin/notes.js"></script>
+		<script src="../reveal.js/dist/plugin/highlight.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'slide',
+				plugins: [ RevealNotes, RevealHighlight ]
+			});
+		</script>
+
+
+	</body>
+</html>

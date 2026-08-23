@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="zh_TW">
+
+	<head>
+		<meta charset="utf-8">
+		<title>從開源到產品：打造你的 AI Agent Side Project</title>
+		<meta name="description" content="AI LAB 第一場公開講座 - 從開源社群、專案參與到 Agent 應用實作">
+		<meta name="author" content="江弘竣 Chun">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../reveal.js/dist/plugin/highlight/zenburn.css">
+<style>
+			.reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+			.reveal section img { border: none; box-shadow: none; background: none; }
+			.reveal .highlight { color: #42affa; }
+			.reveal .dim { color: #888; font-size: 0.7em; }
+			.reveal .left { text-align: left; }
+			.reveal ul { text-align: left; }
+			.reveal blockquote { width: 90%; font-style: normal; background: rgba(255,255,255,0.05); padding: 20px; border-left: 4px solid #42affa; }
+			.reveal .timeline { font-size: 0.8em; text-align: left; }
+			.reveal .timeline li { margin-bottom: 0.5em; }
+			.reveal .big-number { font-size: 3em; color: #42affa; font-weight: bold; }
+			.reveal .two-col { display: flex; gap: 40px; }
+			.reveal .two-col > div { flex: 1; text-align: left; }
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- ============================== -->
+				<!-- 封面 -->
+				<!-- ============================== -->
+				<section>
+					<h2>從開源到產品</h2>
+					<h3>打造你的 AI Agent Side Project</h3>
+					<p><br></p>
+					<p>
+						<small>江弘竣 / <a href="https://mxp.tw">一介資男</a></small><br>
+						<small>敲敲設計 技術長</small>
+					</p>
+					<p><small class="dim">AI LAB 科技實作共學社群 ・ 2026.08.29</small></p>
+					<aside class="notes">
+						開場先自我介紹：我是江弘竣，大家叫我 Chun。敲敲設計技術長，做網站開發的。但今天不聊技術，聊的是一個讓我走了十年的生態 — 開源。先讓大家放輕鬆，今天不考試、沒有作業，就是來聊聊天、看看 demo、希望給你們一些想法帶回去。
+					</aside>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 第一段：開源生態的魅力 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Part 1</h2>
+						<h3>開源生態的魅力</h3>
+						<p class="dim">門檻比你想像的低，回報比你想像的多</p>
+						<aside class="notes">
+							這一段大約 50 分鐘。我想用我自己的故事來跟大家聊，開源社群到底在做什麼、為什麼值得你花時間。不是要你們馬上去寫 code，是讓你知道有這個世界存在，而且比你想的更好入門。
+						</aside>
+					</section>
+
+					<section>
+						<h3>先聊一個問題</h3>
+						<blockquote>
+							「你們學資訊的，一定都很會 AI 吧？」
+						</blockquote>
+						<p class="fragment">真的不是。</p>
+						<p class="fragment">但這不重要，重要的是<span class="highlight">心態</span>。</p>
+						<aside class="notes">
+							這句話我在外面碰到最多。客戶覺得學資訊就一定會 AI，但實話說，工程師對 AI 的接受度未必比非工程師高。因為工程師反而會因為「不是自己熟悉的語言」、「不是自己寫的」而排斥。所以心態比技術底子重要。我粉絲頁有寫過：「心態決定了很多事，AI 是照妖鏡也是放大器。」
+						</aside>
+					</section>
+
+					<section>
+						<h3>心態決定了很多事</h3>
+						<div class="two-col">
+							<div>
+								<p>❌ 覺得這些離我很遠</p>
+								<p>❌ 等全部學會再開始</p>
+								<p>❌ 只有工程師才能參與</p>
+							</div>
+							<div>
+								<p>✅ 好奇就先碰碰看</p>
+								<p>✅ 邊做邊學</p>
+								<p>✅ 每個人都能貢獻</p>
+							</div>
+						</div>
+						<aside class="notes">
+							左邊是我常在學生身上看到的心態，右邊是我這十年最大的體會。我一開始也覺得「開源那種東西離我好遠」，結果第一步就只是翻譯一個字串而已。不需要是大神才能參與，你願意踏出第一步就夠了。
+						</aside>
+					</section>
+
+					<section>
+						<h3>我的開源之路</h3>
+						<ul class="timeline">
+							<li><span class="highlight">2014</span> — 加入 WordPress.org，翻譯第一個字串</li>
+							<li><span class="highlight">2016</span> — 辦了第一場 Taipei Meetup</li>
+							<li><span class="highlight">2018</span> — WordCamp Taipei Lead Organizer</li>
+							<li><span class="highlight">2019–2025</span> — 每月一場，從未中斷</li>
+							<li><span class="highlight">2026</span> — 還在做，而且越做越有趣</li>
+						</ul>
+						<p class="fragment dim">快 10 年了。起點只是翻譯了一個字串。</p>
+						<aside class="notes">
+							2014 年我註冊了 WordPress.org 帳號，幫一個外掛翻譯成繁中。2016 年覺得台北怎麼沒有固定的 WP 聚會就自己辦了第一場，到現在每個月都有。2018 年辦了 WordCamp —— 就是 WordPress 的研討會，全球各地都有辦，我當那年台北場的總召。這些都不是因為我很強，是因為「沒人做所以我來做」。十年了，我最大的收穫其實不是技術，是人跟機會。
+						</aside>
+					</section>
+
+					<section>
+						<h3>開源 ≠ 寫程式</h3>
+						<p>你可以做的事：</p>
+						<ul>
+							<li>翻譯（幫助更多人讀懂）</li>
+							<li>回報 Bug（你踩的坑就是貢獻）</li>
+							<li>寫文件（讓下一個人少走彎路）</li>
+							<li>辦活動（讓社群持續轉動）</li>
+							<li>回答問題（論壇、社群）</li>
+							<li class="fragment highlight">當然，寫 code 也行 😉</li>
+						</ul>
+						<aside class="notes">
+							很多人一聽到開源就覺得「我又不會寫程式」。但其實開源社群最缺的往往不是 code，是翻譯、文件、辦活動的人。我在 WordPress 社群的第一個身份就是翻譯編輯（Translation Editor），幫 5 個外掛做繁中本地化。你只要會中文加英文就能做。辦活動也是 — 找場地、聯繫講者、發社群文，這些都是非技術貢獻。
+						</aside>
+					</section>
+
+					<section>
+						<h3>開源帶給我什麼？</h3>
+						<ul>
+							<li><strong>人脈</strong> — 客戶從社群來，不是從廣告來</li>
+							<li><strong>技術視野</strong> — 被迫接觸各種真實問題</li>
+							<li><strong>公司</strong> — 敲敲設計的起源就是社群</li>
+							<li><strong>信任</strong> — 開源作品就是最好的名片</li>
+						</ul>
+						<p class="fragment"><br>💡 這些不是我很厲害，是<span class="highlight">持續做同一件事</span>的複利效果。</p>
+						<aside class="notes">
+							人脈這件事很實際 — 我公司的客戶幾乎都是從小聚認識的。辦了十年活動，累積起來就是信任。技術視野更不用說，每個月聽不同人分享他們碰到的問題，等於免費上了十年課。公司的部分，敲敲設計本身就是從社群生態長出來的。開源作品放在 GitHub 上，任何人可以看到你的程式碼品質，這比履歷還有說服力。重點是：這些都不是一天做到的，是十年的複利。
+						</aside>
+					</section>
+
+					<section>
+						<h3>為什麼 AI 時代更要接觸開源？</h3>
+						<ul>
+							<li class="fragment">AI 模型訓練的素材 → <span class="highlight">開源優先</span></li>
+							<li class="fragment">AI Agent 需要韁繩（Harness）→ 開源 = 成熟的 <span class="highlight">Protocol</span></li>
+							<li class="fragment">AI 降低了技術門檻 → 更多人可以<span class="highlight">站在巨人肩膀上</span></li>
+						</ul>
+						<p class="fragment"><br>開源不是慈善，是<strong>生態策略</strong>。</p>
+						<aside class="notes">
+							三個角度：第一，AI 模型用什麼資料訓練的？開源程式碼、開源文件、開源資料集。你接觸開源就是在接觸 AI 的「原始材料」。第二，AI Agent 很強但需要被管，我稱為「韁繩工程」—— 開源專案因為有嚴格的規範和文件，天然就是 AI 最好的韁繩。第三，以前寫程式門檻高，現在 AI 幫你寫，門檻降低代表更多人能參與開源生態了。我粉絲頁有專門寫過一篇：「為什麼 AI 什麼都能寫的時代，我們更要善用老牌開源軟體」，核心就是這三點。
+						</aside>
+					</section>
+
+					<section>
+						<h3>你已經在用開源了</h3>
+						<p>Android、Chrome、Firefox、VS Code、<br>VLC、7-Zip、Python、Linux...</p>
+						<p><br></p>
+						<p class="fragment">差別只在：你是<span class="highlight">只用</span>，還是也<span class="highlight">參與</span>？</p>
+						<aside class="notes">
+							現場快速互動：舉手問大家手機是 Android 的有多少？用過 Chrome 的？VS Code？這些全部都是開源專案。你早就是開源生態的受益者了，只是你可能沒意識到。差別就是 — 你要不要從「只用」變成「也參與」？哪怕只是報個 bug、翻譯一段文字，你就從消費者變成了生態的一份子。
+						</aside>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 第二段：參與真實專案 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Part 2</h2>
+						<h3>從「自己的癢」開始</h3>
+						<p class="dim">找到自己的癢，抓出來就是貢獻</p>
+						<aside class="notes">
+							第二段聊怎麼「參與」。我的經驗是不需要去找什麼偉大的 idea，你自己碰到的不方便就是最好的起點。接下來用三個我自己的案例說明。
+						</aside>
+					</section>
+
+					<section>
+						<h3>案例一：痞客邦搬家工具</h3>
+						<ul>
+							<li>我自己想把部落格搬到 WordPress</li>
+							<li>市面上沒有好用的搬家工具</li>
+							<li>自己寫了一個 → 放上 WordPress.org</li>
+							<li>10 年後還有人在用</li>
+						</ul>
+						<p class="fragment"><br>💡 出發點就是<span class="highlight">「我自己需要」</span>這麼簡單。</p>
+						<aside class="notes">
+							2014 年我自己在痞客邦寫部落格，想搬到 WordPress。結果發現沒有好用的搬家工具，匯出格式不相容、圖片不會跟著搬。我就自己寫了一個外掛放到 WordPress.org 的外掛目錄。到今天 2026 年了，十年後還有 100 多人在用。這告訴我：你以為只有你有這個問題，但其實一堆人都有，只是沒人出手。
+						</aside>
+					</section>
+
+					<section>
+						<h3>案例二：OwnScribe</h3>
+						<p>全地端的會議記錄轉譯工具</p>
+						<ul>
+							<li>看到聯發科 Breeze ASR 25 模型好用</li>
+							<li>找到德國網友的 ASR 工具 → Fork 來改</li>
+							<li>開源 → 意外爆紅</li>
+						</ul>
+						<p class="fragment"><br>💡 不用從零開始。<span class="highlight">站在巨人肩膀上</span>就好。</p>
+						<aside class="notes">
+							這個案例重點是「站在巨人肩膀上」。七月的時候看到聯發科出了一個語音辨識模型，中文辨識能力很強。然後我在 GitHub 上找到一個德國開發者做的語音轉文字工具，結構寫得不錯但不支援這個新模型。我 fork 過來改了一下、配置好 → 開源 → 結果反應超好，很多人需要免費的會議記錄工具。重點：你不需要從零開始。別人做了 80%，你補那 20% 然後分享出去，這就是開源的精神。
+						</aside>
+					</section>
+
+					<section>
+						<h3>案例三：BrowseForge</h3>
+						<p>給 AI Agent 用的反偵測瀏覽器</p>
+						<ul>
+							<li>需要讓 AI 幫我操作網站但不被擋</li>
+							<li>市場上的方案太貴或不開源</li>
+							<li>自己做 → 開源 → 有人用有人貢獻</li>
+						</ul>
+						<p class="fragment"><br>💡 <span class="highlight">市場上沒有的 = 機會</span>。做出來就是差異化。</p>
+						<aside class="notes">
+							第三個比較進階。我在做 AI Agent 自動化的時候需要讓 AI 幫我操作瀏覽器，但很多網站會偵測到是機器人就擋掉。市面上有類似的商業服務，一個月要好幾百美金，而且不開源 — 你不知道它裡面做了什麼。所以我自己用 Go 語言做了一個，開源在 GitHub 上。現在有人在用、也有人貢獻程式碼回來。這個案例的啟示是：市場上沒有合適的免費方案 = 機會。你做出來開源，就自然有差異化。
+						</aside>
+					</section>
+
+					<section>
+						<h3>三個案例的共同點</h3>
+						<ol>
+							<li>都是<strong>自己先有需求</strong></li>
+							<li>都不是完美才開源，是<strong>堪用就分享</strong></li>
+							<li>都是<strong>小起點大累積</strong></li>
+						</ol>
+						<p><br></p>
+						<blockquote class="fragment">
+							不需要想出一個偉大的 idea。<br>
+							你今天碰到的麻煩，可能一千人都碰到了。
+						</blockquote>
+						<aside class="notes">
+							歸納一下：三個專案的起點都是「我自己需要」，不是「我想改變世界」。而且都不是做到完美才放出來，是「堪用就分享」。開源社群有句話：release early, release often。你不需要等到 100 分再開源，60 分就夠了，剩下的讓社群一起幫你補。
+						</aside>
+					</section>
+
+					<section>
+						<h3>升格「管理職」</h3>
+						<p>有了 AI Agent，你的角色變了：</p>
+						<ul>
+							<li><strong>以前</strong>：自己寫 → 自己測 → 自己部署</li>
+							<li><strong>現在</strong>：告訴 AI 做什麼 → 審查 → 決策</li>
+							<li><strong>未來</strong>：管理一群 Agent + 社群貢獻者</li>
+						</ul>
+						<p class="fragment"><br>💡 不管哪個階段，<span class="highlight">開源思維</span>都通用：<br>分享、協作、站在別人的成果上前進。</p>
+						<aside class="notes">
+							這個觀念我覺得對在座的學生很重要。有了 AI Agent 之後，開發者的角色從「自己動手」變成「管理 AI 去做」。就像突然升了管理職，你得學會下指令、審查成果、決定方向。這跟開源社群的 maintainer 角色其實一樣 — 你不需要每行 code 都自己寫，但你要知道什麼是好的、什麼方向是對的。所以不管 AI 怎麼發展，「開源思維」— 分享、協作、站在別人成果上前進 — 都通用。
+						</aside>
+					</section>
+
+					<section>
+						<h3>如何找到你的第一個貢獻？</h3>
+						<ul>
+							<li>🔍 從你<strong>每天用的工具</strong>開始</li>
+							<li>🏷️ GitHub <code>good first issue</code> 標籤</li>
+							<li>🌐 翻譯 — 很多專案缺繁中翻譯</li>
+							<li>📝 文件修正 — 看到錯字就能 PR</li>
+							<li>🐛 Bug 回報 — 踩到坑就是貢獻</li>
+						</ul>
+						<p class="fragment"><br>最低門檻：<span class="highlight">在 GitHub 上按 Star</span> 也是支持 ⭐</p>
+						<aside class="notes">
+							實際的入門建議。最推薦的是從你每天在用的工具開始 — 如果你用 VS Code 的某個 extension 覺得有 bug 或缺功能，去它的 GitHub 開 issue 就是貢獻了。good first issue 是 GitHub 上很多專案專門標給新手的任務，搜尋你會的語言 + good first issue 就會找到一堆。翻譯也很好入門，台灣人做繁中翻譯超有價值，因為很多專案只有簡中沒有繁中。最低門檻真的就是按 Star，讓作者知道有人在看、有人在意。
+						</aside>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 中場休息 -->
+				<!-- ============================== -->
+				<section>
+					<h2>☕ 休息 15 分鐘</h2>
+					<p class="dim">接下來我們動手做！</p>
+					<aside class="notes">
+						休息時間。提醒大家：有帶筆電的等一下可以跟著做，沒帶的看我操作就好，重點是看思路不是看程式碼。
+					</aside>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 第三段：實作 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Part 3</h2>
+						<h3>用 AI Agent 打造你的第一個外掛</h3>
+						<p class="dim">「做什麼」比「怎麼做」更重要</p>
+						<aside class="notes">
+							第三段大約 80 分鐘，含 live demo。這段的核心不是教大家寫 code，是讓大家看到「AI Agent 幫你做事」的實際感覺。重點在思考方式，不在技術細節。
+						</aside>
+					</section>
+
+					<section>
+						<h3>AI Agent 是什麼感覺？</h3>
+						<p>不是聊天機器人。</p>
+						<p>是一個<span class="highlight">會幫你動手做事</span>的助手。</p>
+						<ul class="fragment">
+							<li>你說「幫我做一個 OOO」</li>
+							<li>它寫程式、建檔案、跑測試</li>
+							<li>你審查、調整、決定方向</li>
+						</ul>
+						<p class="fragment"><br>就像你是<strong>導演</strong>，AI 是<strong>劇組</strong>。</p>
+						<aside class="notes">
+							先解釋 AI Agent 跟 ChatGPT 的差別。ChatGPT 是你問它答，像諮詢。AI Agent 是你給它任務，它自己去執行 — 讀檔案、寫程式、建目錄、跑測試，全部自動來。你的角色從「自己做事」變成「看它做事然後給方向」，就像導演不用自己演但要知道要什麼。這就是我之前說的「升格管理職」。
+						</aside>
+					</section>
+
+					<section>
+						<h3>今天的實作目標</h3>
+						<p>用 AI Agent 現場做一個<br><span class="highlight">WordPress 外掛</span></p>
+						<p><br></p>
+						<ul>
+							<li>從需求發想開始</li>
+							<li>全程對話式開發</li>
+							<li>最後上架到 WordPress Playground</li>
+						</ul>
+						<p class="fragment dim"><br>（有帶筆電的可以跟著做，沒帶的看思路）</p>
+						<aside class="notes">
+							我們要從零開始做一個 WordPress 外掛。選 WordPress 是因為：1) 我最熟 2) 有 Playground 可以零成本測試 3) WordPress 外掛生態就是開源的最佳示範。整個過程大家注意看的不是程式碼，是我跟 AI 互動的方式 — 怎麼下指令、怎麼修正方向、怎麼判斷結果。
+						</aside>
+					</section>
+
+					<section>
+						<h3>互動：我們要做什麼？</h3>
+						<p>如果你有一個部落格，<br>你希望它多一個什麼功能？</p>
+						<p><br></p>
+						<ul>
+							<li>A. 每日金句顯示</li>
+							<li>B. 文章閱讀時間估算</li>
+							<li>C. 訪客打招呼訊息</li>
+							<li>D. 你的想法？</li>
+						</ul>
+						<aside class="notes">
+							現場互動環節。給大家 1-2 分鐘思考，然後舉手選或直接喊。如果現場沒反應就用 B 方案（閱讀時間估算），這個最直觀也最好 demo。如果有人喊出有趣的想法就用他的！讓學生覺得「這是我們一起決定的」比較有參與感。
+						</aside>
+					</section>
+
+					<section>
+						<h3>觀察重點（不是程式碼）</h3>
+						<ol>
+							<li>我怎麼把「想法」翻譯成「指令」</li>
+							<li>AI 出錯的時候我怎麼修正方向</li>
+							<li>20 分鐘能做出什麼程度的東西</li>
+							<li>最後怎麼變成一個「作品」</li>
+						</ol>
+						<aside class="notes">
+							在切換到 demo 畫面之前，先跟大家說清楚「看什麼」。不是看程式碼，是看四件事。第一我怎麼把模糊的想法翻譯成 AI 聽得懂的指令；第二 AI 一定會出錯，看我怎麼修正；第三看 20 分鐘能到什麼程度（管理預期）；第四怎麼從一堆程式碼變成一個可以分享的「作品」。
+						</aside>
+					</section>
+
+					<section>
+						<h3>🖥️ Live Demo</h3>
+						<p class="big-number">→</p>
+						<p class="dim">（切換到實際操作畫面）</p>
+						<aside class="notes">
+							切換到 Kiro CLI 或桌面版 Agent 操作畫面。大約 30-40 分鐘的 live coding。過程中邊做邊解釋為什麼這樣下指令。遇到 AI 出錯就正面處理，跟學生說「看，它也會犯錯，但重點是你知道怎麼修正方向」。做完後用 WordPress Playground 載入展示成果。
+						</aside>
+					</section>
+
+					<section>
+						<h3>從 Side Project 到開源</h3>
+						<p>剛才做的東西，怎麼變成「開源專案」？</p>
+						<ol>
+							<li>建一個 GitHub Repository</li>
+							<li>加上 README.md（說明這是什麼）</li>
+							<li>加上 LICENSE（讓別人知道能怎麼用）</li>
+							<li>Push！</li>
+						</ol>
+						<p class="fragment"><br>🎉 恭喜，你現在是<span class="highlight">開源貢獻者</span>了。</p>
+						<aside class="notes">
+							Demo 結束後回來這張。跟大家展示把剛做的外掛推到 GitHub 的過程。強調只需要三樣東西：一個 repo、一個 README 說明這是什麼、一個 LICENSE 讓別人知道能怎麼用你的 code。推上去的那一刻，你就是開源貢獻者了。呼應第一段「按 Star 也是支持」—— 現在你是被 Star 的那個人了。
+						</aside>
+					</section>
+
+					<section>
+						<h3>WordPress Playground</h3>
+						<p>零成本、零伺服器，瀏覽器就能跑 WordPress</p>
+						<p><br></p>
+						<p><a href="https://playground.wordpress.net/" target="_blank">playground.wordpress.net</a></p>
+						<p><br></p>
+						<p class="dim">回家就能用來測試你的外掛想法。</p>
+						<aside class="notes">
+							最後推薦這個工具。WordPress Playground 是用 WebAssembly 在瀏覽器跑完整的 WordPress，不需要伺服器、不需要裝 PHP，打開瀏覽器就能玩。大家回去可以把剛才看到的外掛自己試著改改看、或是從零做一個新的。完全免費，零門檻。
+						</aside>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 收尾 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>收尾</h2>
+						<h3>站在巨人肩膀上，共好</h3>
+						<aside class="notes">
+							最後 15 分鐘收尾。把今天三段的精華濃縮，然後給大家一些可以帶走的行動建議。
+						</aside>
+					</section>
+
+					<section>
+						<h3>今天的旅程</h3>
+						<ol>
+							<li><strong>開源生態</strong> — 門檻很低，持續做就有複利</li>
+							<li><strong>找到自己的癢</strong> — 你的麻煩就是別人的麻煩</li>
+							<li><strong>AI Agent</strong> — 降低技術門檻，讓你專注在「做什麼」</li>
+						</ol>
+						<aside class="notes">
+							快速回顧三段。第一段：開源沒那麼遙遠，翻譯一個字串就能開始，持續做十年就有複利。第二段：不需要偉大 idea，你自己碰到的問題就是最好的起點。第三段：AI Agent 讓技術門檻降低了，以前要學三個月才能寫的東西現在 20 分鐘就有雛形，所以「做什麼」比「怎麼做」重要。
+						</aside>
+					</section>
+
+					<section>
+						<h3>一個觀念帶走</h3>
+						<blockquote>
+							你今天用了別人的開源成果<br>
+							（WordPress、AI 模型、GitHub...）<br><br>
+							有一天你做的東西<br>
+							也會成為別人的<span class="highlight">巨人肩膀</span>。
+						</blockquote>
+						<aside class="notes">
+							這是今天最想留給大家的一句話。你現在是站在別人肩膀上的人 — 用著免費的工具、免費的模型、免費的平台。有一天你做的東西，不管多小，也可能成為下一個人的巨人肩膀。開源就是這種「共好」的循環。
+						</aside>
+					</section>
+
+					<section>
+						<h3>達克效應的提醒</h3>
+						<ul>
+							<li>剛學一點 →「這有什麼難的？」（愚昧之巔）</li>
+							<li>碰到真實複雜度 →「原來我什麼都不會」（絕望之谷）</li>
+							<li>持續練習 → 慢慢爬上來（覺醒之坡）</li>
+							<li class="fragment highlight">重點：知道自己在哪個階段，然後繼續走。</li>
+						</ul>
+						<aside class="notes">
+							最後提一個「達克效應」。這是我粉絲頁寫過的主題。很多人碰 AI 後會經歷：一開始覺得「AI 什麼都能做耶太簡單了」，然後碰到真的複雜問題就崩潰覺得「AI 也沒用嘛」。這就是達克效應的前兩個階段。知道自己在哪個階段很重要 — 在愚昧之巔不要太驕傲，在絕望之谷不要放棄，繼續走就會爬上來。
+						</aside>
+					</section>
+
+					<section>
+						<h3>回去可以做的事</h3>
+						<ul>
+							<li>🎮 打開 <a href="https://playground.wordpress.net/">WordPress Playground</a> 玩玩看</li>
+							<li>⭐ 找一個你覺得有趣的 GitHub 專案按 Star</li>
+							<li>🔍 搜尋 <code>good first issue</code> + 你會的語言</li>
+							<li>💬 加入一個開源社群（WordPress、COSCUP...）</li>
+							<li>🤖 裝一個 AI Agent 工具來試試「管理職」的感覺</li>
+						</ul>
+						<aside class="notes">
+							五個具體的行動建議，回家今天就能做。不用全做，挑一個就好。最低門檻就是打開 WordPress Playground 或去 GitHub 按一個 Star。重點是「動起來」。
+						</aside>
+					</section>
+
+					<section>
+						<h3>推薦資源</h3>
+						<ul>
+							<li>🔗 <a href="https://github.com/nczz">github.com/nczz</a> — 我的開源專案們</li>
+							<li>🔗 <a href="https://playground.wordpress.net/">playground.wordpress.net</a> — WP Playground</li>
+							<li>🔗 <a href="https://gist.github.com/nczz">gist.github.com/nczz</a> — 教學筆記</li>
+							<li>🔗 <a href="https://www.facebook.com/mxp.tw">fb.me/mxp.tw</a> — 一介資男粉絲頁</li>
+						</ul>
+						<aside class="notes">
+							放上我的資源連結。Gist 上有很多我整理的教學筆記和 AI Skill 可以直接用。粉絲頁上我每天都會分享 AI 相關的觀點和實作心得，有興趣追蹤。
+						</aside>
+					</section>
+
+					<section>
+						<h2>謝謝！</h2>
+						<p><br></p>
+						<p>有問題隨時問 👋</p>
+						<p><br></p>
+						<p class="dim">
+							江弘竣 / 一介資男<br>
+							<a href="https://mxp.tw">mxp.tw</a>
+						</p>
+						<aside class="notes">
+							Q&A 時間。如果沒人問就引導：「有沒有人想知道怎麼開始？」或「有沒有人好奇我每天用 AI 都在做什麼？」。結束後可以引導到粉絲頁或 GitHub 追蹤。
+						</aside>
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../reveal.js/dist/reveal.js"></script>
+		<script src="../reveal.js/dist/plugin/notes.js"></script>
+		<script src="../reveal.js/dist/plugin/highlight.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'slide',
+				plugins: [ RevealNotes, RevealHighlight ]
+			});
+		</script>
+
+
+	</body>
+</html>

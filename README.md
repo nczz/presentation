@@ -14,3 +14,6 @@
 - 2020/03/12 [WordPress 2020/03/12 小聚 @ 台北信義 - WordPress 網站的速度還是素肚？ - 快取加速與圖片檔案的經營管理](https://nczz.github.io/presentation/Taipei-WordPress-Meetup/20200312.html) / [列印輸出PDF版](https://nczz.github.io/presentation/Taipei-WordPress-Meetup/20200312.html?print-pdf)
 - 2020/05/29 [WordPress 2020/05/29 小聚 @ 台北信義 - 抗疫期間，我學習 WordPress 的方法](https://nczz.github.io/presentation/Taipei-WordPress-Meetup/20200529.html) / [列印輸出PDF版](https://nczz.github.io/presentation/Taipei-WordPress-Meetup/20200529.html?print-pdf)
 - 2020/07/23 [WordPress 2020/07/23 小聚 @ 台北信義 - WordPress 新手入門的五件早知道](https://nczz.github.io/presentation/Taipei-WordPress-Meetup/20200723.html) / [列印輸出PDF版](https://nczz.github.io/presentation/Taipei-WordPress-Meetup/20200723.html?print-pdf)
+- 2026/06/10 [讓 AI 變身你的診所貼身助理 - 3.5 小時實戰 Workshop](https://nczz.github.io/presentation/kc-course1/) / [列印輸出PDF版](https://nczz.github.io/presentation/kc-course1/?print-pdf)
+- 2026/07/25 [AI Agent 第二大腦 — 工作流 & 知識庫](https://nczz.github.io/presentation/kc-course2/) / [列印輸出PDF版](https://nczz.github.io/presentation/kc-course2/?print-pdf)
+- 2026/08/29 [AI LAB 公開講座 - 從開源到產品：打造你的 AI Agent Side Project](https://nczz.github.io/presentation/ai-lab-2026/) / [列印輸出PDF版](https://nczz.github.io/presentation/ai-lab-2026/?print-pdf)

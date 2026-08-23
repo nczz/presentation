@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="zh_TW">
+
+	<head>
+		<meta charset="utf-8">
+		<title>讓 AI 變身你的診所貼身助理</title>
+		<meta name="description" content="3.5 小時實戰 Workshop — 教學以醫美為主要示範，方法適用任何專科">
+		<meta name="author" content="江弘竣 Chun">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../reveal.js/dist/plugin/highlight/zenburn.css">
+<style>
+			@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+			.reveal, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal p, .reveal li, .reveal td, .reveal th {
+				font-family: 'Noto Sans TC', sans-serif;
+			}
+			.reveal h1, .reveal h2, .reveal h3 { text-transform: none; }
+			.reveal section img { border: none; box-shadow: none; background: none; }
+			.reveal .highlight { color: #42affa; }
+			.reveal .dim { color: #888; font-size: 0.7em; }
+			.reveal .left { text-align: left; }
+			.reveal ul { text-align: left; }
+			.reveal ol { text-align: left; }
+			.reveal blockquote {
+				width: 90%;
+				font-style: normal;
+				background: rgba(255,255,255,0.05);
+				padding: 20px;
+				border-left: 4px solid #42affa;
+			}
+			.reveal table {
+				border-collapse: collapse;
+				margin: 0 auto;
+				font-size: 0.75em;
+			}
+			.reveal table th,
+			.reveal table td {
+				border: 1px solid rgba(255,255,255,0.2);
+				padding: 8px 16px;
+				text-align: left;
+			}
+			.reveal table th {
+				background: rgba(66,175,250,0.15);
+				font-weight: 700;
+			}
+			.reveal table tr:nth-child(even) {
+				background: rgba(255,255,255,0.03);
+			}
+			.reveal .big-number { font-size: 3em; color: #42affa; font-weight: bold; }
+			.reveal .two-col { display: flex; gap: 40px; }
+			.reveal .two-col > div { flex: 1; text-align: left; }
+			.reveal .emoji { font-size: 1.5em; }
+			.reveal .subtitle { color: #888; font-size: 0.8em; margin-top: -10px; }
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- ============================== -->
+				<!-- 封面 -->
+				<!-- ============================== -->
+				<section>
+					<h2>讓 AI 變身你的診所貼身助理</h2>
+					<h3>3.5 小時實戰 Workshop</h3>
+					<p><br></p>
+					<blockquote>教學以醫美為主要示範，方法適用任何專科</blockquote>
+					<p><br></p>
+					<p>
+						<small>江弘竣 Chun ｜ <a href="https://mxp.tw">一介資男</a> ｜ mxp.tw</small>
+					</p>
+					<p><small class="dim">2026.06.10</small></p>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 今天你會帶走什麼 -->
+				<!-- ============================== -->
+				<section>
+					<h2>今天你會帶走什麼</h2>
+					<ol>
+						<li><span class="highlight">觀念</span> — AI Agent 能幫你做什麼</li>
+						<li><span class="highlight">技能</span> — 餵知識 + 給規矩 + 長手腳</li>
+						<li><span class="highlight">系統</span> — 調教一次，全診所都能用</li>
+					</ol>
+					<p><br></p>
+					<blockquote>今天學的觀念適用 ChatGPT、Gemini、Claude、kiro——<br>工具會換，能力帶著走。</blockquote>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 第一段：Agent 能做什麼？ -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Agent 能做什麼？</h2>
+						<p class="subtitle">8 種能力 × 診所實例</p>
+					</section>
+
+					<!-- ① 查詢 -->
+					<section>
+						<h3>① 查詢 — 從你的知識裡找答案</h3>
+						<p>AI 不再瞎掰，從你餵過的資料中<span class="highlight">精準回答</span></p>
+						<table>
+							<tr><th>場景</th><th>範例</th></tr>
+							<tr><td>術後衛教</td><td>「雷射後可以敷面膜嗎？」</td></tr>
+							<tr><td>藥物禁忌</td><td>「A酸療程期間能打肉毒嗎？」</td></tr>
+							<tr><td>SOP 查詢</td><td>「新客諮詢流程是什麼？」</td></tr>
+						</table>
+						<p><br></p>
+						<blockquote>關鍵差異：通用 AI 給教科書答案，調教後的 AI 給<span class="highlight">「你的」</span>答案</blockquote>
+					</section>
+
+					<!-- ② 轉換 -->
+					<section>
+						<h3>② 轉換 — 同一份內容變 N 種格式</h3>
+						<ul>
+							<li>衛教原文 → LINE 短訊版 / 官網文章版 / 口語衛教版</li>
+							<li>英文論文摘要 → 中文病患可讀版</li>
+							<li>長篇 SOP → 一頁速查卡</li>
+						</ul>
+					</section>
+
+					<!-- ③ 生成 -->
+					<section>
+						<h3>③ 生成 — 從零產出有品質的內容</h3>
+						<ul>
+							<li>Google 評論回覆（公開版 + 私訊版）</li>
+							<li>衛教文章 / IG 貼文 / EDM 文案</li>
+							<li>術前評估摘要 / 簡報 / 回診提醒訊息</li>
+						</ul>
+					</section>
+
+					<!-- ④ 判斷 -->
+					<section>
+						<h3>④ 判斷 — 依規則檢查、把關、標記</h3>
+						<ul>
+							<li>不推薦品牌</li>
+							<li>不保證療效</li>
+							<li>禁止誇大用語</li>
+							<li>併發症轉介</li>
+						</ul>
+						<p><br></p>
+						<p>👆 這就是<span class="highlight">「安全護欄」</span></p>
+					</section>
+
+					<!-- ⑤ 整理 -->
+					<section>
+						<h3>⑤ 整理 — 把混亂資訊變成結構</h3>
+						<ul>
+							<li>護理師口述 → 術前評估表</li>
+							<li>郵件 → 今日摘要</li>
+							<li>會議錄音 → 重點摘要 + 待辦清單</li>
+						</ul>
+					</section>
+
+					<!-- ⑥ 串接 -->
+					<section>
+						<h3>⑥ 串接 — 操作外部工具完成動作</h3>
+						<ul>
+							<li>讀 Gmail → 摘要 → 產出回覆草稿 → 寄出</li>
+							<li>下載郵件附件 → 整理到 Google Drive</li>
+						</ul>
+						<p><br></p>
+						<p>關鍵字：<span class="highlight">MCP</span> / <span class="highlight">Plugin</span></p>
+					</section>
+
+					<!-- ⑦ 自動化 -->
+					<section>
+						<h3>⑦ 自動化 — 排程重複任務</h3>
+						<ul>
+							<li>每天 10:00 提醒昨天術後客人追蹤</li>
+							<li>每週一整理上週諮詢量統計</li>
+							<li>每月 1 號產出月報模板</li>
+						</ul>
+					</section>
+
+					<!-- ⑧ 協作 -->
+					<section>
+						<h3>⑧ 協作 — 多人共用同一個腦</h3>
+						<table>
+							<tr><th>角色</th><th>問什麼</th></tr>
+							<tr><td>護理師</td><td>衛教問題</td></tr>
+							<tr><td>櫃台</td><td>排程 / 價格</td></tr>
+							<tr><td>新人</td><td>SOP</td></tr>
+							<tr><td>醫師</td><td>文獻 / 比較</td></tr>
+						</table>
+						<p><br></p>
+						<p>核心價值：<span class="highlight">調教一次，全員受益</span></p>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 小結：三件事搞定一切 -->
+				<!-- ============================== -->
+				<section>
+					<h2>三件事搞定一切</h2>
+					<ol>
+						<li><span class="highlight">餵知識</span> — 讓 AI 讀過你的書</li>
+						<li><span class="highlight">給規矩</span> — 告訴 AI 什麼能做什麼不能做</li>
+						<li><span class="highlight">長手腳</span> — 讓 AI 增加呼叫外部協作的能力</li>
+					</ol>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 第二段：觀念定錨 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>觀念定錨</h2>
+						<p class="subtitle">名字不同，觀念一樣</p>
+					</section>
+
+					<!-- 今天的路線圖 -->
+					<section>
+						<h3>今天的路線圖</h3>
+						<p>
+							<span class="highlight">餵知識</span>（知識庫）<br>
+							⬇<br>
+							<span class="highlight">給規矩</span>（Steering）<br>
+							⬇<br>
+							<span class="highlight">團隊化</span>（Discord）
+						</p>
+					</section>
+
+					<!-- 兩個版本一套知識 -->
+					<section>
+						<h3>兩個版本一套知識</h3>
+						<table>
+							<tr><th></th><th>kiro-cli（個人版）</th><th>Discord Bot（團隊版）</th></tr>
+							<tr><td>使用者</td><td>醫師 / 管理者</td><td>全診所員工</td></tr>
+							<tr><td>介面</td><td>終端機 / 編輯器</td><td>Discord 聊天室</td></tr>
+							<tr><td>知識庫</td><td>本地檔案</td><td>同一份知識</td></tr>
+							<tr><td>調教方式</td><td>Steering 文件</td><td>同步生效</td></tr>
+							<tr><td>適合</td><td>設計 & 測試</td><td>日常使用</td></tr>
+						</table>
+					</section>
+
+					<!-- 白話翻譯表 1/2 -->
+					<section>
+						<h3>白話翻譯表（1/2）核心概念</h3>
+						<table>
+							<tr><th>術語</th><th>白話</th></tr>
+							<tr><td>Model</td><td>AI 的大腦（GPT-4o、Claude、Gemini…）</td></tr>
+							<tr><td>Agent</td><td>有手有腳的 AI，能自己判斷下一步</td></tr>
+							<tr><td>Agentic</td><td>讓 AI 像員工一樣自主完成任務</td></tr>
+							<tr><td>Prompt</td><td>你對 AI 說的話</td></tr>
+							<tr><td>Token</td><td>AI 讀/寫的計量單位（≈ 0.7 個中文字）</td></tr>
+							<tr><td>Context Window</td><td>AI 一次能記住的量（短期記憶大小）</td></tr>
+							<tr><td>Hallucination</td><td>AI 瞎掰（一本正經講幹話）</td></tr>
+						</table>
+					</section>
+
+					<!-- 白話翻譯表 2/2 -->
+					<section>
+						<h3>白話翻譯表（2/2）你今天會學到的</h3>
+						<table>
+							<tr><th>術語</th><th>白話</th></tr>
+							<tr><td>System Prompt</td><td>AI 的人設說明書</td></tr>
+							<tr><td>Steering</td><td>行為規矩檔（今天重點）</td></tr>
+							<tr><td>Context Engineering</td><td>幫 AI 準備好它需要的所有資訊</td></tr>
+							<tr><td>RAG</td><td>讓 AI 先查資料再回答</td></tr>
+							<tr><td>Fine-tuning</td><td>改造 AI 大腦本身（我們今天不做這個）</td></tr>
+							<tr><td>Knowledge Base</td><td>你餵給 AI 的文件庫</td></tr>
+							<tr><td>Embedding</td><td>把文字變成數字以便搜尋</td></tr>
+							<tr><td>MCP / Tool Calling</td><td>讓 AI 呼叫外部工具的標準接口</td></tr>
+						</table>
+					</section>
+
+					<!-- Harness Engineering -->
+					<section>
+						<h3>Harness Engineering</h3>
+						<p><span class="highlight">Agent = Model + Harness</span></p>
+						<p>模型是大腦，Harness 是大腦之外的一切</p>
+						<p><br></p>
+						<table>
+							<tr><th>組件</th><th>對應</th></tr>
+							<tr><td>Instructions</td><td>Steering / System Prompt</td></tr>
+							<tr><td>Knowledge</td><td>知識庫</td></tr>
+							<tr><td>Memory</td><td>對話紀錄 / 永久記憶</td></tr>
+							<tr><td>Tools</td><td>MCP / Plugin</td></tr>
+							<tr><td>Guardrails</td><td>安全護欄</td></tr>
+							<tr><td>Orchestration</td><td>流程編排</td></tr>
+						</table>
+					</section>
+
+					<!-- 為什麼 Harness 才是重點 -->
+					<section>
+						<h3>為什麼 Harness 才是重點</h3>
+						<p>模型大家都用一樣的</p>
+						<p>差距來自 <span class="highlight">Harness</span></p>
+						<p><br></p>
+						<blockquote>「不是 AI 不夠聰明，是你還沒幫它穿好裝備。」</blockquote>
+					</section>
+
+					<!-- 每家 Agent 都有的設計 -->
+					<section>
+						<h3>每家 Agent 都有的設計</h3>
+						<table>
+							<tr><th>組件</th><th>Codex</th><th>Claude Code</th><th>kiro-cli</th><th>kiro-discord-bot</th></tr>
+							<tr><td>Instructions</td><td>System Prompt</td><td>CLAUDE.md</td><td>Steering</td><td>Steering</td></tr>
+							<tr><td>Knowledge</td><td>Codebase</td><td>Codebase</td><td>知識庫</td><td>知識庫</td></tr>
+							<tr><td>Memory</td><td>Session</td><td>Memory</td><td>Context</td><td>永久記憶</td></tr>
+							<tr><td>Tools</td><td>內建</td><td>MCP</td><td>MCP</td><td>MCP</td></tr>
+							<tr><td>Guardrails</td><td>Policy</td><td>Permissions</td><td>Steering</td><td>Steering</td></tr>
+						</table>
+						<p><br></p>
+						<p class="dim">名字不同，設計一模一樣</p>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 第三段：知識庫 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>知識庫</h2>
+						<p class="subtitle">讓 AI 讀過你的書</p>
+					</section>
+
+					<!-- 什麼是知識庫 -->
+					<section>
+						<h3>什麼是知識庫</h3>
+						<p>
+							文件 → 切段建索引 → AI 查詢 → 精準回答
+						</p>
+						<p><br></p>
+						<p>這就是 <span class="highlight">RAG</span><br>
+						<span class="dim">（Retrieval-Augmented Generation）</span></p>
+					</section>
+
+					<!-- 怎麼開始建立知識庫 -->
+					<section>
+						<h3>怎麼開始建立知識庫</h3>
+						<table>
+							<tr><th>常見誤區 ❌</th><th>正確做法 ✅</th></tr>
+							<tr><td>等所有文件整理好再開始</td><td>有什麼丟什麼，邊用邊補</td></tr>
+							<tr><td>要找專業人員幫忙建置</td><td>對話就能建立</td></tr>
+							<tr><td>文件格式要統一</td><td>PDF / Word / 文字都行</td></tr>
+							<tr><td>要一次到位</td><td>知識庫會長大，持續餵養</td></tr>
+						</table>
+						<p><br></p>
+						<blockquote>正確心態：不是準備好了才開始，是現在就開始</blockquote>
+					</section>
+
+					<!-- Live Demo -->
+					<section>
+						<h3>🎬 Live Demo</h3>
+						<p>用對話建立知識庫的操作示範</p>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 第四段：Steering -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Steering</h2>
+						<p class="subtitle">讓 AI 守你的規矩</p>
+					</section>
+
+					<!-- 什麼是 Steering -->
+					<section>
+						<h3>什麼是 Steering</h3>
+						<ul>
+							<li>一份 Markdown 文件，定義 AI 行為準則</li>
+							<li>像貼在辦公室牆上的<span class="highlight">規矩表</span></li>
+						</ul>
+					</section>
+
+					<!-- 四大區塊 -->
+					<section>
+						<h3>Steering 四大區塊</h3>
+						<table>
+							<tr><th>區塊</th><th>功能</th></tr>
+							<tr><td>身份定位</td><td>你是誰、服務哪間診所</td></tr>
+							<tr><td>輸出規範</td><td>語氣、長度、格式要求</td></tr>
+							<tr><td>安全護欄</td><td>什麼不能做</td></tr>
+							<tr><td>常用格式</td><td>回覆模板、表格結構</td></tr>
+						</table>
+					</section>
+
+					<!-- 安全護欄重點 -->
+					<section>
+						<h3>安全護欄重點</h3>
+						<ul>
+							<li>❌ 不做醫療診斷</li>
+							<li>❌ 不推薦特定品牌</li>
+							<li>❌ 不保證療效</li>
+							<li>❌ 禁止誇大用語</li>
+							<li>⚠️ 併發症描述 → 建議回診</li>
+						</ul>
+					</section>
+
+					<!-- Live Demo -->
+					<section>
+						<h3>🎬 Live Demo</h3>
+						<h4>有 vs 沒有 Steering</h4>
+						<p><br></p>
+						<p>測試問題：</p>
+						<blockquote>「哪個牌子的玻尿酸最好？」</blockquote>
+					</section>
+
+					<!-- 學員跟做 -->
+					<section>
+						<h3>👩‍💻 學員跟做</h3>
+						<p>用模板改 3 處：</p>
+						<ol>
+							<li>診所名稱</li>
+							<li>語氣風格</li>
+							<li>自訂規則</li>
+						</ol>
+						<p><br></p>
+						<p>測試 4 題確認效果</p>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 休息 -->
+				<!-- ============================== -->
+				<section>
+					<h2>☕ 休息 10 分鐘</h2>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 第五段：Discord Bot -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>Discord Bot</h2>
+						<p class="subtitle">全診所的入口</p>
+					</section>
+
+					<!-- 為什麼要 Discord Bot -->
+					<section>
+						<h3>為什麼要 Discord Bot</h3>
+						<table>
+							<tr><th>問題</th><th>解法</th></tr>
+							<tr><td>每個人都要裝 CLI？</td><td>Discord 人人都會用</td></tr>
+							<tr><td>知識散落在個人電腦</td><td>集中管理、全員共享</td></tr>
+							<tr><td>調教成果只有自己用</td><td>部署一次、全員受益</td></tr>
+							<tr><td>沒有使用紀錄</td><td>討論串自動留痕</td></tr>
+						</table>
+					</section>
+
+					<!-- 架構圖 -->
+					<section>
+						<h3>架構圖</h3>
+						<p>
+							醫師調教（Steering + 知識庫）<br>
+							⬇<br>
+							部署到 Discord Bot<br>
+							⬇<br>
+							全員使用（護理師 / 櫃台 / 新人 / 醫師）
+						</p>
+					</section>
+
+					<!-- Bot 獨有能力 -->
+					<section>
+						<h3>Bot 獨有能力</h3>
+						<ul>
+							<li><span class="highlight">永久記憶</span> — 記住每位病患的特殊狀況</li>
+							<li><span class="highlight">排程</span> — 定時提醒、自動任務</li>
+							<li><span class="highlight">討論串</span> — 每個話題獨立追蹤</li>
+							<li><span class="highlight">多頻道</span> — 衛教 / 行政 / 行銷分開</li>
+							<li><span class="highlight">語音轉文字</span> — 錄音直接整理</li>
+						</ul>
+					</section>
+
+					<!-- Live Demo -->
+					<section>
+						<h3>🎬 Live Demo</h3>
+						<h4>記憶 + 排程</h4>
+						<p><br></p>
+						<p><code>/memory add</code> — 新增永久記憶</p>
+						<p><code>/cron-prompt</code> — 設定排程任務</p>
+					</section>
+
+					<!-- 學員體驗 -->
+					<section>
+						<h3>👩‍💻 學員體驗</h3>
+						<p>在 Discord Server 中實際操作</p>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 第六段：更多可能 -->
+				<!-- ============================== -->
+				<section>
+					<section>
+						<h2>更多可能</h2>
+						<p class="subtitle">串接 × 自動化展示</p>
+					</section>
+
+					<!-- gog CLI -->
+					<section>
+						<h3>gog CLI — AI 操作 Gmail &amp; Drive</h3>
+						<p>一句話完成跨服務操作</p>
+						<p><br></p>
+						<blockquote>「幫我把今天的郵件摘要整理到 Google Doc」</blockquote>
+					</section>
+
+					<!-- AI 產簡報 -->
+					<section>
+						<h3>AI 產簡報</h3>
+						<p>一句話到 PDF</p>
+						<p><br></p>
+						<blockquote>「幫我用上週的諮詢數據做一份月報簡報」</blockquote>
+					</section>
+				</section>
+
+				<!-- ============================== -->
+				<!-- 總結 -->
+				<!-- ============================== -->
+				<section>
+					<h2>總結</h2>
+					<ol>
+						<li><span class="highlight">餵知識</span> = 讓 AI 讀過你的書</li>
+						<li><span class="highlight">給規矩</span> = 讓 AI 守你的規矩</li>
+						<li><span class="highlight">長手腳</span> = 讓 AI 操作外部工具</li>
+						<li><span class="highlight">團隊化</span> = 讓全診所都能用</li>
+					</ol>
+					<p><br></p>
+					<blockquote>工具會換、名字會變，<br>但「餵知識 + 給規矩 + 長手腳」的邏輯永遠適用。</blockquote>
+				</section>
+
+				<!-- ============================== -->
+				<!-- Q&A -->
+				<!-- ============================== -->
+				<section>
+					<h2>Q&A</h2>
+					<table>
+						<tr><th>常見問題</th><th>簡答</th></tr>
+						<tr><td>資料安全？</td><td>本地運算 / 私有部署可選</td></tr>
+						<tr><td>費用？</td><td>API 按量計費，月幾百元起</td></tr>
+						<tr><td>能串 LINE 嗎？</td><td>可以，透過 Webhook 串接</td></tr>
+						<tr><td>多位醫師？</td><td>多頻道 + 多 Steering 檔</td></tr>
+						<tr><td>不會部署？</td><td>今天教的都能帶走操作</td></tr>
+					</table>
+					<p><br></p>
+					<p><small class="dim">江弘竣 Chun ｜ 一介資男 ｜ mxp.tw</small></p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../reveal.js/dist/reveal.js"></script>
+		<script src="../reveal.js/dist/plugin/notes.js"></script>
+		<script src="../reveal.js/dist/plugin/highlight.js"></script>
+		<script src="../reveal.js/dist/plugin/zoom.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'slide',
+				plugins: [ RevealNotes, RevealHighlight, RevealZoom ]
+			});
+		</script>
+
+
+	</body>
+</html>
