@@ -17,3 +17,4 @@
 - 2026/06/10 [讓 AI 變身你的診所貼身助理 - 3.5 小時實戰 Workshop](https://nczz.github.io/presentation/kc-course1/) / [列印輸出PDF版](https://nczz.github.io/presentation/kc-course1/?print-pdf)
 - 2026/07/25 [AI Agent 第二大腦 — 工作流 & 知識庫](https://nczz.github.io/presentation/kc-course2/) / [列印輸出PDF版](https://nczz.github.io/presentation/kc-course2/?print-pdf)
 - 2026/08/29 [AI LAB 公開講座 - 從開源到產品：打造你的 AI Agent Side Project](https://nczz.github.io/presentation/ai-lab-2026/) / [列印輸出PDF版](https://nczz.github.io/presentation/ai-lab-2026/?print-pdf)
+- 2026/10/11 [玩轉 AI Agent — 醫師實戰工作坊：從 Agent 觀念到 SCI 論文與簡報](https://nczz.github.io/presentation/kc-course3/index.pdf)（PDF）
